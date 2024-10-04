@@ -25,7 +25,7 @@ import towels16 from '@/app/public/image/towel16.jpeg';
 import towels17 from '@/app/public/image/towel17.jpg';
 import towels18 from '@/app/public/image/towel18.jpg';
 import towels19 from '@/app/public/image/towel19.jpg'
-export default function page() {
+export default function Page() {
     const images = [
         towel1, towel2, towel3, towels4, towels5, towels6, towels7, towels8, towels9, towels10,
         towels11, towels12, towels13, towels14, towels15, towels16, towels17, towels18, towels19,
