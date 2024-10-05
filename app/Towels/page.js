@@ -5,10 +5,9 @@ import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 
 // Import images correctly from the public folder
-
 import towel1 from '@/app/public/image/towel1(1)(1).png';
-import towel2 from '@/app/public/image/towel2(1)(1).jpg'; // Use the correct alias
-import towel3 from '@/app/public/image/towel3(1)(1).jpg';;
+import towel2 from '@/app/public/image/towel2(1)(1).jpg'; 
+import towel3 from '@/app/public/image/towel3(1)(1).jpg';
 import towels4 from '@/app/public/image/towel4.jpeg';
 import towels5 from '@/app/public/image/towel5.jpeg';
 import towels6 from '@/app/public/image/towel6.jpeg';
@@ -25,6 +24,7 @@ import towels16 from '@/app/public/image/towel16.jpeg';
 import towels17 from '@/app/public/image/towel17.jpg';
 import towels18 from '@/app/public/image/towel18.jpg';
 import towels19 from '@/app/public/image/towel19.jpg'
+
 export default function Page() {
     const images = [
         towel1, towel2, towel3, towels4, towels5, towels6, towels7, towels8, towels9, towels10,
@@ -60,13 +60,13 @@ export default function Page() {
             <div className='flex items-center mb-[5%]'>
                 <p className='h-px w-16 bg-[#E55A0D]'></p>
             </div>
-            <div className="grid grid-cols-4 gap-4 mx-[2%]">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mx-[2%]">
                 {images.map((img, index) => (
                     <Image
                         key={index}
                         src={img}
-                        alt={`Bedsheet image ${index + 1}`}
-                        className="h-[250px] w-[250px] border-4 border-[#dfdada] cursor-pointer object-cover"
+                        alt={`Towel image ${index + 1}`}
+                        className="h-[150px] w-full sm:h-[200px] lg:h-[250px] object-cover border-4 border-[#dfdada] cursor-pointer"
                         onClick={() => handleImageClick(index)}
                     />
                 ))}
@@ -75,7 +75,7 @@ export default function Page() {
             {/* Modal for clicked image */}
             {selectedImageIndex !== null && (
                 <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
-                    <div className="relative">
+                    <div className="relative w-[90%] max-w-[600px]">
                         {/* Close button */}
                         <button
                             onClick={closeModal}
@@ -103,8 +103,8 @@ export default function Page() {
                         {/* Display clicked image */}
                         <Image
                             src={images[selectedImageIndex]}
-                            alt="Selected Bedsheet"
-                            className="h-[500px] w-[500px] object-cover"
+                            alt="Selected Towel"
+                            className="w-full h-auto object-cover max-h-[500px]"
                         />
                     </div>
                 </div>

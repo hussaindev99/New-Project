@@ -3,10 +3,11 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
+
 // Import images correctly from the public folder
 import Hospitality1 from '@/app/public/image/hos1.jpg';
-import Hospitality2 from '@/app/public/image/hos2.jpg'; // Use the correct alias
-import Hospitality3 from '@/app/public/image/hos3.jpg';;
+import Hospitality2 from '@/app/public/image/hos2.jpg'; 
+import Hospitality3 from '@/app/public/image/hos3.jpg';
 import Hospitality4 from '@/app/public/image/hos4.jpg';
 import Hospitality5 from '@/app/public/image/hos5.jpg';
 import Hospitality6 from '@/app/public/image/hos6.jpg';
@@ -22,8 +23,9 @@ import Hospitality15 from '@/app/public/image/hos15.jpg';
 import Hospitality16 from '@/app/public/image/hos16.jpg';
 import Hospitality17 from '@/app/public/image/hos17.jpg';
 import Hospitality18 from '@/app/public/image/hos18.jpg';
-import Hospitality19 from '@/app/public/image/hos19.jpg'
-import Hospitality20 from '@/app/public/image/hos20.jpg'
+import Hospitality19 from '@/app/public/image/hos19.jpg';
+import Hospitality20 from '@/app/public/image/hos20.jpg';
+
 export default function Page() {
     const images = [
         Hospitality1, Hospitality2, Hospitality3, Hospitality4, Hospitality5, Hospitality6, Hospitality7, Hospitality8, Hospitality9, Hospitality10,
@@ -59,13 +61,13 @@ export default function Page() {
             <div className='flex items-center mb-[5%]'>
                 <p className='h-px w-16 bg-[#E55A0D]'></p>
             </div>
-            <div className="grid grid-cols-4 gap-4 mx-[2%]">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mx-[2%]">
                 {images.map((img, index) => (
                     <Image
                         key={index}
                         src={img}
-                        alt={`Bedsheet image ${index + 1}`}
-                        className="h-[250px] w-[250px] border-4 border-[#dfdada] cursor-pointer object-cover"
+                        alt={`Hospitality image ${index + 1}`}
+                        className="h-[150px] sm:h-[200px] lg:h-[250px] w-full border-4 border-[#dfdada] cursor-pointer object-cover"
                         onClick={() => handleImageClick(index)}
                     />
                 ))}
@@ -74,7 +76,7 @@ export default function Page() {
             {/* Modal for clicked image */}
             {selectedImageIndex !== null && (
                 <div className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50">
-                    <div className="relative">
+                    <div className="relative w-[90%] max-w-[600px]">
                         {/* Close button */}
                         <button
                             onClick={closeModal}
@@ -102,8 +104,8 @@ export default function Page() {
                         {/* Display clicked image */}
                         <Image
                             src={images[selectedImageIndex]}
-                            alt="Selected Bedsheet"
-                            className="h-[500px] w-[500px] object-cover"
+                            alt="Selected Hospitality"
+                            className="w-full h-auto object-cover max-h-[500px]"
                         />
                     </div>
                 </div>

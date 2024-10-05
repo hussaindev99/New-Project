@@ -63,7 +63,7 @@ import img56 from '@/app/public/image/img56.jpg';
 import img57 from '@/app/public/image/img57.jpg';
 import img58 from '@/app/public/image/img58.jpg';
 
-export default function Page() {
+export default function page() {
     const images = [
         img1, img2, img3, img4, img5, img6, img7, img8, img9, img10,
         img11, img12, img13, img14, img15, img16, img17, img18, img19, img20,
@@ -75,22 +75,18 @@ export default function Page() {
 
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
-    // Handle image click
     const handleImageClick = (index) => {
         setSelectedImageIndex(index);
     };
 
-    // Close modal
     const closeModal = () => {
         setSelectedImageIndex(null);
     };
 
-    // Go to the next image
     const handleNext = () => {
         setSelectedImageIndex((prevIndex) => (prevIndex + 1) % images.length);
     };
 
-    // Go to the previous image
     const handlePrev = () => {
         setSelectedImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
     };
@@ -103,13 +99,13 @@ export default function Page() {
                 <p className='h-px w-16 bg-[#E55A0D]'></p>
                 <p className='h-px w-5 bg-[#E5E5E5]'></p>
             </div>
-            <div className="grid grid-cols-4 gap-4 mx-[2%]">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mx-[2%]">
                 {images.map((img, index) => (
                     <Image
                         key={index}
                         src={img}
                         alt={`Bedsheet image ${index + 1}`}
-                        className="h-[250px] w-[250px] border-4 border-[#dfdada] cursor-pointer object-cover"
+                        className="h-[150px] w-[150px] sm:h-[200px] sm:w-[200px] md:h-[250px] md:w-[250px] border-4 border-[#dfdada] cursor-pointer object-cover"
                         onClick={() => handleImageClick(index)}
                     />
                 ))}
@@ -147,7 +143,7 @@ export default function Page() {
                         <Image
                             src={images[selectedImageIndex]}
                             alt="Selected Bedsheet"
-                            className="h-[500px] w-[500px] object-cover"
+                            className="h-[300px] w-[300px] sm:h-[400px] sm:w-[400px] md:h-[500px] md:w-[500px] object-cover"
                         />
                     </div>
                 </div>

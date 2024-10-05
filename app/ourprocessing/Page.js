@@ -6,7 +6,7 @@ import processing3 from '@/app/public/image/processing3.jpg';
 import processing4 from '@/app/public/image/processing4.jpg';
 import Slider from '../(component)/slider/Slider';
 
-export default function Page() {
+export default function page() {
     return (
         <>
             <Slider />

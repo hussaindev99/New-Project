@@ -2,7 +2,7 @@ import React from 'react'
 import Slider from '../(component)/slider/Slider'
 import Image from 'next/image'
 import certification from '@/app/public/image/Certificate.jpg'
-export default function Page() {
+export default function page() {
     return (
         <>
             <Slider />
