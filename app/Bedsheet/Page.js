@@ -63,7 +63,7 @@ import img56 from '@/app/public/image/img56.jpg';
 import img57 from '@/app/public/image/img57.jpg';
 import img58 from '@/app/public/image/img58.jpg';
 
-export default function page() {
+export default function Page() {
     const images = [
         img1, img2, img3, img4, img5, img6, img7, img8, img9, img10,
         img11, img12, img13, img14, img15, img16, img17, img18, img19, img20,
