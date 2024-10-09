@@ -74,7 +74,7 @@ export default function page() {
                         {/* Security Code */}
                         <div className='flex flex-col md:flex-row items-start md:items-center w-full md:w-[50%] justify-between'>
                             <label htmlFor="securitycode" className='block text-[#FDD043] text-sm md:text-base'>Security Code: <span className='text-[#FE0000]'>*</span></label>
-                            <div className="flex items-center mt-1">
+                            <div className="flex items-center mt-1 md:mr-[25%]">
                                 <input
                                     type="text"
                                     name="securitycode"
@@ -85,7 +85,7 @@ export default function page() {
                         </div>
 
                         {/* Submit Button */}
-                        <button className='mt-4 md:mt-6 px-4 py-1 bg-gray-200 text-gray-600 hover:bg-gray-400 text-sm rounded-md w-full md:w-[25%]'>Submit</button>
+                        <button className='mt-4 md:mt-6 px-4 py-1 bg-gray-200 text-gray-600 hover:bg-gray-400 text-sm rounded-md w-full md:w-[25%] md:ml-[25%]'>Submit</button>
                     </div>
                 </div>
             </div>

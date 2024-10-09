@@ -14,7 +14,6 @@ function Navbar() {
 
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
-    // Dropdown only for 'ABOUT US' and 'OUR PRODUCTS'
     setDropdownOpen(buttonName === 'ABOUT US' || buttonName === 'OUR PRODUCTS' ? buttonName : '');
     setMobileMenuOpen(false); // Close mobile menu on selection
   };
@@ -103,6 +102,7 @@ function Navbar() {
                         {item.label}
                       </Link>
                     ))}
+
                   </div>
                 )}
               </div>
@@ -113,24 +113,24 @@ function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className='lg:hidden bg-white shadow-lg w-full absolute top-[60px] left-0'>
+        <div className='lg:hidden fixed top-0 left-0 w-full h-[calc(100vh-60px)] bg-white shadow-lg z-50 transition-transform duration-500 overflow-y-auto'>
           <div className='flex flex-col items-center space-y-4 py-4'>
             {['HOME', 'ABOUT US', 'OUR PRODUCTS', 'EXHIBITION', 'OUR PROCESSING', 'CONTACT US'].map((buttonName) => (
               <div key={buttonName} className='w-full'>
-                <div className='flex justify-center'>
-                  <button
-                    className={`cursor-pointer text-lg font-semibold ${activeButton === buttonName ? 'text-[#00124B]' : 'text-[#726f6f]'}`}
-                    onClick={() => 
-                      buttonName === 'ABOUT US' || buttonName === 'OUR PRODUCTS'
-                        ? toggleMobileDropdown(buttonName)
-                        : handleButtonClick(buttonName)
-                    }
+                <div className='flex justify-between px-4'>
+                  <Link
+                    href={buttonName === 'HOME' ? '/' : `/${buttonName.toLowerCase().replace(' ', '')}`} // Ensure routing is consistent for all pages
+                    className={`cursor-pointer text-lg font-semibold ${activeButton === buttonName ? 'text-[#00124B]' : 'text-gray-800'}`}
+                    onClick={() => {
+                      handleButtonClick(buttonName); // Set active button
+                      setMobileMenuOpen(false); // Close the mobile menu
+                    }}
                   >
                     {buttonName}
-                  </button>
+                  </Link>
                   {/* Toggle dropdown for mobile */}
                   {(buttonName === 'ABOUT US' || buttonName === 'OUR PRODUCTS') && (
-                    <button onClick={() => toggleMobileDropdown(buttonName)} className='ml-2'>
+                    <button onClick={() => toggleMobileDropdown(buttonName)}>
                       {mobileDropdownOpen === buttonName ? '▲' : '▼'}
                     </button>
                   )}
@@ -144,7 +144,10 @@ function Navbar() {
                         key={item.label}
                         href={item.href}
                         className='block py-2 text-gray-600 hover:bg-[#00124B] hover:text-white'
-                        onClick={() => setMobileDropdownOpen('')} // Close dropdown after selection
+                        onClick={() => {
+                          setMobileDropdownOpen(''); // Close dropdown after selection
+                          setMobileMenuOpen(false); // Close the mobile menu after clicking a link
+                        }}
                       >
                         {item.label}
                       </Link>
