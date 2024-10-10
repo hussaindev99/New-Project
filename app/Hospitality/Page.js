@@ -26,7 +26,7 @@ import Hospitality18 from '@/app/public/image/hos18.jpg';
 import Hospitality19 from '@/app/public/image/hos19.jpg';
 import Hospitality20 from '@/app/public/image/hos20.jpg';
 
-export default function Page() {
+export default function page() {
     const images = [
         Hospitality1, Hospitality2, Hospitality3, Hospitality4, Hospitality5, Hospitality6, Hospitality7, Hospitality8, Hospitality9, Hospitality10,
         Hospitality11, Hospitality12, Hospitality13, Hospitality14, Hospitality15, Hospitality16, Hospitality17, Hospitality18, Hospitality19, Hospitality20,
